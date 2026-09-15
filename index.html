@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trắc nghiệm Công nghệ 8 - Bài 2: Hình chiếu vuông góc</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-indigo-600 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div>
+                <h1 class="text-xl md:text-2xl font-bold">CÔNG NGỆ 8 - BÀI 2</h1>
+                <p class="text-xs md:text-sm text-indigo-200">Hình chiếu vuông góc</p>
+            </div>
+            <div id="score-display" class="hidden bg-indigo-700 px-3 py-1.5 rounded-lg border border-indigo-500 font-semibold text-sm">
+                Điểm: <span id="current-score" class="text-yellow-300">0</span>/9
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow max-w-4xl w-full mx-auto p-4 md:p-6">
+
+        <!-- Navigation Tabs -->
+        <div class="flex border-b border-gray-200 mb-6 bg-white rounded-t-lg shadow-sm overflow-hidden">
+            <button id="tab-quiz" onclick="switchTab('quiz')" class="flex-1 py-3 px-4 text-center font-medium border-b-2 border-indigo-600 text-indigo-600 transition flex items-center justify-center gap-2">
+                <i class="fas fa-edit"></i> Làm Bài Trắc Nghiệm
+            </button>
+            <button id="tab-theory" onclick="switchTab('theory')" class="flex-1 py-3 px-4 text-center font-medium text-gray-500 hover:text-indigo-600 border-b-2 border-transparent transition flex items-center justify-center gap-2">
+                <i class="fas fa-book-open"></i> Lý Thuyết Trọng Tâm
+            </button>
+        </div>
+
+        <!-- SECTION: THEORY CONTENT -->
+        <div id="content-theory" class="hidden space-y-6 bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h2 class="text-2xl font-bold text-indigo-900 border-b pb-2">NỘI DUNG LÝ THUYẾT BÀI 2</h2>
+            
+            <!-- Part 1 -->
+            <section class="space-y-3">
+                <h3 class="text-lg font-bold text-indigo-700 flex items-center gap-2">
+                    <span class="bg-indigo-100 text-indigo-800 text-xs px-2.5 py-1 rounded-full">1</span>
+                    Khái niệm và Phương pháp chiếu góc thứ nhất
+                </h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                    <li><b>Phép chiếu vuông góc:</b> Sử dụng các tia chiếu vuông góc với mặt phẳng hình chiếu (P).</li>
+                    <li><b>Hệ thống mặt phẳng hình chiếu (MPHC):</b>
+                        <ul class="list-circle pl-6 mt-1 space-y-1">
+                            <li>MPHC đứng (P_1): Mặt phẳng chính diện.</li>
+                            <li>MPHC bằng (P_2): Mặt phẳng nằm ngang.</li>
+                            <li>MPHC cạnh (P_3): Mặt phẳng bên phải.</li>
+                        </ul>
+                    </li>
+                    <li><b>Các hình chiếu vuông góc:</b>
+                        <ul class="list-circle pl-6 mt-1 space-y-1">
+                            <li><span class="font-semibold text-indigo-900">Hình chiếu đứng:</span> Hướng chiếu từ trước tới Thể hiện chiều rộng và chiều cao.</li>
+                            <li><span class="font-semibold text-indigo-900">Hình chiếu bằng:</span> Hướng chiếu từ trên xuống Thể hiện chiều rộng và chiều sâu (đặt bên dưới hình chiếu đứng).</li>
+                            <li><span class="font-semibold text-indigo-900">Hình chiếu cạnh:</span> Hướng chiếu từ trái sang Thể hiện chiều cao và chiều sâu (đặt bên phải hình chiếu đứng).</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Part 2 -->
+            <section class="space-y-3 pt-4 border-t border-gray-100">
+                <h3 class="text-lg font-bold text-indigo-700 flex items-center gap-2">
+                    <span class="bg-indigo-100 text-indigo-800 text-xs px-2.5 py-1 rounded-full">2</span>
+                    Hình chiếu của các khối đa diện thường gặp
+                </h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                    <li><b>Hình hộp chữ nhật:</b> Cả 3 hình chiếu đều là hình chữ nhật (thể hiện chiều dài a, chiều rộng b, chiều cao h).</li>
+                    <li><b>Hình lăng trụ tam giác đều:</b> Hình chiếu đứng và hình chiếu cạnh là hình chữ nhật; Hình chiếu bằng là tam giác đều.</li>
+                    <li><b>Hình chóp tứ giác đều:</b> Hình chiếu đứng và hình chiếu cạnh là các tam giác cân bằng nhau; Hình chiếu bằng là hình vuông có hai đường chéo nối đỉnh.</li>
+                </ul>
+            </section>
+
+            <!-- Part 3 -->
+            <section class="space-y-3 pt-4 border-t border-gray-100">
+                <h3 class="text-lg font-bold text-indigo-700 flex items-center gap-2">
+                    <span class="bg-indigo-100 text-indigo-800 text-xs px-2.5 py-1 rounded-full">3</span>
+                    Hình chiếu của các khối tròn xoay thường gặp
+                </h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                    <li><b>Hình trụ:</b> Hình chiếu đứng và hình chiếu cạnh là hình chữ nhật; hình chiếu bằng là hình tròn.</li>
+                    <li><b>Hình nón:</b> Hình chiếu đứng và hình chiếu cạnh là tam giác cân; hình chiếu bằng là hình tròn (có tâm).</li>
+                    <li><b>Hình cầu:</b> Cả 3 hình chiếu đều là hình tròn (có đường kính $d$).</li>
+                </ul>
+            </section>
+
+            <!-- Part 4 -->
+            <section class="space-y-3 pt-4 border-t border-gray-100">
+                <h3 class="text-lg font-bold text-indigo-700 flex items-center gap-2">
+                    <span class="bg-indigo-100 text-indigo-800 text-xs px-2.5 py-1 rounded-full">4</span>
+                    Quy trình 4 bước vẽ hình chiếu vuông góc
+                </h3>
+                <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+                    <li><b>Bước 1:</b> Phân tích vật thể thành các khối hình học đơn giản.</li>
+                    <li><b>Bước 2:</b> Chọn các hướng chiếu (từ trước tới, từ trên xuống, từ trái sang).</li>
+                    <li><b>Bước 3:</b> Vẽ hình chiếu các bộ phận bằng nét liền mảnh.</li>
+                    <li><b>Bước 4:</b> Tô đậm nét thấy, vẽ nét đứt mảnh cho cạnh khuất, tẩy nét thừa và ghi số đo kích thước.</li>
+                </ol>
+            </section>
+        </div>
+
+        <!-- SECTION: QUIZ CONTENT -->
+        <div id="content-quiz" class="space-y-8">
+
+            <!-- Part I: Multiple Choice -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 space-y-6">
+                <div class="border-b pb-3">
+                    <h2 class="text-xl font-bold text-indigo-900">PHẦN I. CÂU HỎI TRẮC NGHIỆM NHIỀU LỰA CHỌN</h2>
+                    <p class="text-sm text-gray-500">Mỗi câu hỏi chỉ chọn 01 phương án đúng nhất.</p>
+                </div>
+
+                <!-- MCQ List Container -->
+                <div id="mcq-container" class="space-y-8"></div>
+            </div>
+
+            <!-- Part II: True/False Question -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 space-y-6">
+                <div class="border-b pb-3">
+                    <h2 class="text-xl font-bold text-indigo-900">PHẦN II. CÂU HỎI TRẮC NGHIỆM ĐÚNG / SAI</h2>
+                    <p class="text-sm text-gray-500">Lựa chọn Đúng hoặc Sai cho từng nhận định a, b, c, d.</p>
+                </div>
+
+                <!-- TF Question Container -->
+                <div id="tf-container" class="space-y-6"></div>
+            </div>
+
+            <!-- Submit & Result Area -->
+            <div class="text-center pt-4">
+                <button id="btn-submit" onclick="gradeQuiz()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-xl shadow-md transition transform hover:-translate-y-0.5">
+                    Nộp Bài & Xem Kết Quả
+                </button>
+            </div>
+
+            <!-- Final Result Card -->
+            <div id="result-card" class="hidden bg-white p-6 rounded-xl shadow-lg border-2 border-indigo-500 text-center space-y-4">
+                <h3 class="text-2xl font-bold text-gray-800">KẾT QUẢ BÀI LÀM</h3>
+                <div class="text-5xl font-black text-indigo-600" id="final-score">0 / 9</div>
+                <p id="feedback-text" class="text-gray-600 font-medium"></p>
+                <button onclick="resetQuiz()" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2 px-6 rounded-lg transition">
+                    Làm Lại Bài
+                </button>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-400 text-center py-4 text-xs mt-auto">
+        Ứng dụng Trắc nghiệm Công nghệ 8 - Bài 2
+    </footer>
+
+    <!-- Script Logic -->
+    <script>
+        // Data Questions directly from the user's provided content
+        const mcqQuestions = [
+            {
+                id: 1,
+                question: "Câu 1: Để thu được hình chiếu bằng của một vật thể, ta thực hiện hướng chiếu từ đâu?",
+                options: [
+                    "A. Hướng chiếu từ trước sang.",
+                    "B. Hướng chiếu từ trên xuống.",
+                    "C. Hướng chiếu từ trái sang.",
+                    "D. Hướng chiếu từ phải sang."
+                ],
+                correct: 1, // Index B
+                explanation: "Đáp án B: Hướng chiếu từ trên xuống cho hình chiếu bằng."
+            },
+            {
+                id: 2,
+                question: "Câu 2: Trong phương pháp chiếu góc thứ nhất, vị trí của hình chiếu cạnh trên bản vẽ kĩ thuật được đặt ở đâu?",
+                options: [
+                    "A. Bên phải hình chiếu đứng.",
+                    "B. Bên trái hình chiếu đứng.",
+                    "C. Phía dưới hình chiếu đứng.",
+                    "D. Phía trên hình chiếu đứng."
+                ],
+                correct: 0, // Index A
+                explanation: "Đáp án A: Hình chiếu cạnh đặt bên phải hình chiếu đứng, hình chiếu bằng đặt bên dưới hình chiếu đứng."
+            },
+            {
+                id: 3,
+                question: "Câu 3: Một khối hình trụ có đường kính đáy d và chiều cao h. Hình chiếu đứng và hình chiếu bằng của hình trụ này lần lượt có hình dạng là:",
+                options: [
+                    "A. Hình tròn và hình chữ nhật.",
+                    "B. Hình chữ nhật và hình chữ nhật.",
+                    "C. Hình chữ nhật và hình tròn.",
+                    "D. Hình tam giác cân và hình tròn."
+                ],
+                correct: 2, // Index C
+                explanation: "Đáp án C: Hình chiếu đứng là hình chữ nhật kích thước d x h, hình chiếu bằng là hình tròn đường kính d."
+            },
+            {
+                id: 4,
+                question: "Câu 4: Đặc điểm hình chiếu bằng của hình chóp tứ giác đều là:",
+                options: [
+                    "A. Hình tam giác cân có đường cao.",
+                    "B. Hình vuông có hai đường chéo cắt nhau tại tâm.",
+                    "C. Hình chữ nhật có hai đường chéo.",
+                    "D. Hình tròn có tâm ở giữa."
+                ],
+                correct: 1, // Index B
+                explanation: "Đáp án B: Hình chiếu bằng biểu diễn mặt đáy hình vuông và các cạnh bên là hai đường chéo gặp nhau tại đỉnh chóp."
+            },
+            {
+                id: 5,
+                question: "Câu 5: Khi vẽ hình chiếu vuông góc của một vật thể đơn giản, ở bước cuối cùng (Hoàn thiện bản vẽ và ghi kích thước), người vẽ cần thực hiện thao tác nào sau đây?",
+                options: [
+                    "A. Phân tích vật thể thành các khối đa diện và khối tròn xoay.",
+                    "B. Xác định các hướng chiếu từ trước, từ trên, từ trái.",
+                    "C. Tô đậm các đường bao thấy, dùng nét đứt mảnh cho cạnh khuất và ghi kích thước thực.",
+                    "D. Mở mặt phẳng hình chiếu bằng xuống dưới 90 độ."
+                ],
+                correct: 2, // Index C
+                explanation: "Đáp án C: Bước 4 gồm tô đậm nét thấy, dùng nét đứt mảnh cho cạnh khuất, tẩy nét thừa và ghi kích thước."
+            }
+        ];
+
+        const tfQuestion = {
+            title: "Câu 6: Trong giờ học Công nghệ 8, các bạn học sinh thảo luận về chủ đề 'Hình chiếu vuông góc của các khối hình học và quy tắc biểu diễn bản vẽ'. Xét tính đúng/sai của các nhận định sau:",
+            items: [
+                {
+                    key: "a",
+                    text: "a) Hình chiếu đứng thể hiện kích thước chiều rộng và chiều cao của vật thể, còn hình chiếu bằng thể hiện kích thước chiều rộng và chiều sâu của vật thể.",
+                    correct: true,
+                    explanation: "ĐÚNG: Hình chiếu đứng cho biết chiều rộng và chiều cao; hình chiếu bằng cho biết chiều rộng và chiều sâu."
+                },
+                {
+                    key: "b",
+                    text: "b) Đặt một hình cầu có đường kính d trước mặt phẳng chiếu, cả 3 hình chiếu (đứng, bằng, cạnh) thu được đều là các hình tròn bằng nhau có đường kính d.",
+                    correct: true,
+                    explanation: "ĐÚNG: Hình cầu nhìn từ bất kỳ hướng chiếu vuông góc nào cũng thu được hình chiếu là hình tròn có đường kính d."
+                },
+                {
+                    key: "c",
+                    text: "c) Đối với khối đa diện đều và các khối tròn xoay đơn giản, trên bản vẽ kĩ thuật bắt buộc phải biểu diễn đủ cả 3 hình chiếu vuông góc thì mới xác định được hình dạng của chúng.",
+                    correct: false,
+                    explanation: "SAI: Đối với khối tròn xoay hoặc khối đa diện đơn giản, người ta thường chỉ cần 2 hình chiếu vuông góc là đủ biểu diễn hình dạng và kích thước."
+                },
+                {
+                    key: "d",
+                    text: "d) Khi vẽ nét bao thấy của vật thể ta dùng nét liền đậm, còn khi biểu diễn đường tâm, đường trục đối xứng của hình tròn ta dùng nét đứt mảnh.",
+                    correct: false,
+                    explanation: "SAI: Đường tâm, đường trục đối xứng được vẽ bằng nét gạch dài - chấm - mảnh (nét đứt mảnh dùng để biểu diễn cạnh khuất, đường bao khuất)."
+                }
+            ]
+        };
+
+        // Render MCQ Questions
+        function renderMCQ() {
+            const container = document.getElementById('mcq-container');
+            container.innerHTML = mcqQuestions.map((q, idx) => `
+                <div class="space-y-3 p-4 rounded-lg bg-slate-50 border border-slate-200" id="mcq-card-${idx}">
+                    <p class="font-semibold text-gray-800">${q.question}</p>
+                    <div class="space-y-2">
+                        ${q.options.map((opt, optIdx) => `
+                            <label class="flex items-center p-3 rounded-md bg-white border border-gray-200 hover:bg-indigo-50 cursor-pointer transition text-sm text-gray-700">
+                                <input type="radio" name="mcq-${idx}" value="${optIdx}" class="w-4 h-4 text-indigo-600 focus:ring-indigo-500 mr-3">
+                                <span>${opt}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                    <div id="mcq-expl-${idx}" class="hidden p-3 mt-2 rounded bg-blue-50 text-blue-900 text-sm border-l-4 border-blue-500">
+                        <strong>Giải thích:</strong> ${q.explanation}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Render True/False Question
+        function renderTF() {
+            const container = document.getElementById('tf-container');
+            container.innerHTML = `
+                <p class="font-semibold text-gray-800 mb-4">${tfQuestion.title}</p>
+                <div class="space-y-4">
+                    ${tfQuestion.items.map((item, idx) => `
+                        <div class="p-4 rounded-lg bg-slate-50 border border-slate-200 space-y-3" id="tf-card-${idx}">
+                            <p class="text-sm font-medium text-gray-800">${item.text}</p>
+                            <div class="flex gap-4">
+                                <label class="inline-flex items-center gap-2 cursor-pointer bg-white px-4 py-2 rounded border border-gray-200 hover:bg-emerald-50">
+                                    <input type="radio" name="tf-${idx}" value="true" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
+                                    <span class="text-sm font-semibold text-emerald-700">Đúng</span>
+                                </label>
+                                <label class="inline-flex items-center gap-2 cursor-pointer bg-white px-4 py-2 rounded border border-gray-200 hover:bg-rose-50">
+                                    <input type="radio" name="tf-${idx}" value="false" class="w-4 h-4 text-rose-600 focus:ring-rose-500">
+                                    <span class="text-sm font-semibold text-rose-700">Sai</span>
+                                </label>
+                            </div>
+                            <div id="tf-expl-${idx}" class="hidden p-3 mt-2 rounded bg-blue-50 text-blue-900 text-sm border-l-4 border-blue-500">
+                                <strong>Giải thích:</strong> ${item.explanation}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        // Switch Tabs
+        function switchTab(tab) {
+            const quizContent = document.getElementById('content-quiz');
+            const theoryContent = document.getElementById('content-theory');
+            const tabQuiz = document.getElementById('tab-quiz');
+            const tabTheory = document.getElementById('tab-theory');
+
+            if (tab === 'quiz') {
+                quizContent.classList.remove('hidden');
+                theoryContent.classList.add('hidden');
+                tabQuiz.className = "flex-1 py-3 px-4 text-center font-medium border-b-2 border-indigo-600 text-indigo-600 transition flex items-center justify-center gap-2";
+                tabTheory.className = "flex-1 py-3 px-4 text-center font-medium text-gray-500 hover:text-indigo-600 border-b-2 border-transparent transition flex items-center justify-center gap-2";
+            } else {
+                theoryContent.classList.remove('hidden');
+                quizContent.classList.add('hidden');
+                tabTheory.className = "flex-1 py-3 px-4 text-center font-medium border-b-2 border-indigo-600 text-indigo-600 transition flex items-center justify-center gap-2";
+                tabQuiz.className = "flex-1 py-3 px-4 text-center font-medium text-gray-500 hover:text-indigo-600 border-b-2 border-transparent transition flex items-center justify-center gap-2";
+            }
+        }
+
+        // Grade Quiz
+        function gradeQuiz() {
+            let totalScore = 0;
+
+            // Grade MCQ (5 items)
+            mcqQuestions.forEach((q, idx) => {
+                const selected = document.querySelector(`input[name="mcq-${idx}"]:checked`);
+                const card = document.getElementById(`mcq-card-${idx}`);
+                const expl = document.getElementById(`mcq-expl-${idx}`);
+
+                expl.classList.remove('hidden');
+
+                if (selected && parseInt(selected.value) === q.correct) {
+                    totalScore += 1;
+                    card.className = "space-y-3 p-4 rounded-lg bg-emerald-50 border border-emerald-300";
+                } else {
+                    card.className = "space-y-3 p-4 rounded-lg bg-rose-50 border border-rose-300";
+                }
+            });
+
+            // Grade TF (4 sub-items)
+            tfQuestion.items.forEach((item, idx) => {
+                const selected = document.querySelector(`input[name="tf-${idx}"]:checked`);
+                const card = document.getElementById(`tf-card-${idx}`);
+                const expl = document.getElementById(`tf-expl-${idx}`);
+
+                expl.classList.remove('hidden');
+
+                if (selected && (selected.value === "true") === item.correct) {
+                    totalScore += 1;
+                    card.className = "p-4 rounded-lg bg-emerald-50 border border-emerald-300 space-y-3";
+                } else {
+                    card.className = "p-4 rounded-lg bg-rose-50 border border-rose-300 space-y-3";
+                }
+            });
+
+            // Display Results
+            const scoreDisplay = document.getElementById('score-display');
+            const currentScore = document.getElementById('current-score');
+            const finalScore = document.getElementById('final-score');
+            const resultCard = document.getElementById('result-card');
+            const feedbackText = document.getElementById('feedback-text');
+
+            scoreDisplay.classList.remove('hidden');
+            currentScore.textContent = totalScore;
+            finalScore.textContent = `${totalScore} / 9`;
+
+            if (totalScore === 9) {
+                feedbackText.textContent = "Xuất sắc! Bạn đã nắm vững toàn bộ kiến thức Bài 2.";
+            } else if (totalScore >= 6) {
+                feedbackText.textContent = "Tốt lắm! Bạn đã hiểu khá rõ bài học. Hãy xem lại các câu chưa đúng nhé.";
+            } else {
+                feedbackText.textContent = "Bạn hãy chuyển sang tab 'Lý Thuyết Trọng Tâm' để ôn lại bài nhé!";
+            }
+
+            resultCard.classList.remove('hidden');
+            resultCard.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Reset Quiz
+        function resetQuiz() {
+            document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+            document.querySelectorAll('[id^="mcq-expl-"], [id^="tf-expl-"]').forEach(el => el.classList.add('hidden'));
+            
+            mcqQuestions.forEach((_, idx) => {
+                document.getElementById(`mcq-card-${idx}`).className = "space-y-3 p-4 rounded-lg bg-slate-50 border border-slate-200";
+            });
+
+            tfQuestion.items.forEach((_, idx) => {
+                document.getElementById(`tf-card-${idx}`).className = "p-4 rounded-lg bg-slate-50 border border-slate-200 space-y-3";
+            });
+
+            document.getElementById('result-card').classList.add('hidden');
+            document.getElementById('score-display').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize App
+        window.onload = () => {
+            renderMCQ();
+            renderTF();
+        };
+    </script>
+</body>
+</html>
+#### Copy Right
+Giáo viên: Đỗ Tấn Thạnh		Giáo viên: Đoàn Thị Thủy Tiên		Giáo viên: Trang Thị Thu Minh
